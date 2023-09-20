@@ -6,11 +6,9 @@ const credentials={
 }
 const products=require('./data')
 router.post('/login',(req,res)=>{
-    console.log(req.body);
     if(req.body.email===credentials.email&&req.body.password===credentials.password){
         req.session.user=req.body.email;
         res.redirect('/route/home');
-        console.log('login suceessful');
     }else{
         res.render('login',{message:'Username or Password is incorrect'});
     }
