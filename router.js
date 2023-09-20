@@ -17,7 +17,6 @@ router.post("/login", (req, res) => {
   }
 });
 router.get("/home", (req, res) => {
-  console.log(req.session.user);
   if (req.session.user) {
     res.render("home", {
       user: req.session.user,
