@@ -13,7 +13,7 @@ router.post("/login", (req, res) => {
     req.session.user = req.body.email;
     res.redirect("/route/home");
   } else {
-    res.render("login", { message: "Username or Password is incorrect" });
+    res.render("login", { message: "Username or Password is incorrect",title:'Login'});
   }
 });
 router.get("/home", (req, res) => {
