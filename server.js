@@ -21,8 +21,14 @@ app.use(nocache());
 app.set("view engine", "ejs");
 app.use("/static", express.static(path.join(__dirname, "public")));
 app.use("/route", router);
+
 app.get("/", (req, res) => {
-  res.render("login", { title: "login" });
+  if(!req.session.user){
+    res.render("login", { title: "login" });
+
+  }else{
+    res.redirect('/route/home');
+  }
 });
 
 app.listen(3000);
